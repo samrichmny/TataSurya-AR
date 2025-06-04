@@ -30,15 +30,22 @@ AFRAME.registerComponent('soundhandler', {
 <body>
 <body>
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;';>
-        <a-assets>
-            <audio id="sound" src="./assets/audio/universe-backsound.mp3" preload="auto"></audio>
-        </a-assets>""
-        <a-marker preset="custom" type="pattern" url="./pattern/Patern-marker.patt">
-           <a-entity gltf-model="./assets/3d/solar_system.glb" scale="1 1 1" position="0.5 0 0"
-               animation="property:rotation; from:0 0 0; to: 0 360 0; dur: 3000; loop:true">
-               <a-sound src="./assets/audio/universe-backsound.mp3" autoplay="true" position="0 0 0"></a-sound>
-           </a-entity>
-       </a-marker>More actions
+<a-assets>
+    <audio id="sound" src="./assets/audio/universe-backsound.mp3" preload="auto"></audio>
+</a-assets>
+
+<a-marker preset="custom" type="pattern" url="./pattern/Patern_SolarSystem.patt">
+    <a-entity 
+        gltf-model="./assets/3d/solar_system.glb" 
+        scale="1 1 1" 
+        position="0.5 0 0"
+        animation="property:rotation; from:0 0 0; to: 0 360 0; dur: 3000; loop:true"
+    >
+        <!-- Suara dalam marker -->
+        <a-sound src="#sound" autoplay="true" position="0 0 0"></a-sound>
+    </a-entity>
+</a-marker>
+More actions
          <a-entity sound="src: #sound" autoplay="false"></a-entity>
          <a-entity camera></a-entity>
  </a-scene>
